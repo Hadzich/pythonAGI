@@ -123,28 +123,29 @@ elif option=='2':
     agi.say_date(int(time.time()),"")
 
 
-agi.stream_file("for-the-weather")
-agi.stream_file("press-1")
-agi.stream_file("for-no-press")
-agi.say_number(2,"")
-agi.stream_file("beep")
-option = ""
-while True:
-  result = agi.wait_for_digit(-1)
-  if result.isdigit():
-    if int(result) <3:  
-        option = result
-        break
-  else:
-    continue
+if loc!="":
+    agi.stream_file("for-the-weather")
+    agi.stream_file("press-1")
+    agi.stream_file("for-no-press")
+    agi.say_number(2,"")
+    agi.stream_file("beep")
+    option = ""
+    while True:
+    result = agi.wait_for_digit(-1)
+    if result.isdigit():
+        if int(result) <3:  
+            option = result
+            break
+    else:
+        continue
 
-if option=='1':
-    temp = requests.get(url).json()["locations"][loc]["values"][0]["temp"]
-    agi.stream_file("temperature")
-    agi.stream_file("in-your-city")
-    agi.stream_file("is")
-    agi.say_number(temp)
-    agi.stream_file("degrees")
+    if option=='1':
+        temp = requests.get(url).json()["locations"][loc]["values"][0]["temp"]
+        agi.stream_file("temperature")
+        agi.stream_file("in-your-city")
+        agi.stream_file("is")
+        agi.say_number(temp)
+        agi.stream_file("degrees")
 
 agi.stream_file("goodbye")
 agi.hangup()
