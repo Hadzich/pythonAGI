@@ -73,6 +73,7 @@ while True:
 if option == '1':
     try:
         agi.stream_file("pls-enter-vm-password")
+        agi.stream_file("beep")
         number =""
         while True:
             result = agi.wait_for_digit(-1)
