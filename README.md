@@ -1,5 +1,6 @@
 # pythonAGI
-Need to have UserDetail table 
+Need to have UserDetail table
+
 create table UserDetail (
 id int not null PRIMARY KEY,
 userID varchar(30),
