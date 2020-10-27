@@ -132,13 +132,13 @@ if loc!="":
     agi.stream_file("beep")
     option = ""
     while True:
-    result = agi.wait_for_digit(-1)
-    if result.isdigit():
-        if int(result) <3:  
-            option = result
-            break
-    else:
-        continue
+      result = agi.wait_for_digit(-1)
+      if result.isdigit():
+          if int(result) <3:  
+              option = result
+              break
+      else:
+          continue
 
     if option=='1':
         temp = requests.get(url).json()["locations"][loc]["values"][0]["temp"]
